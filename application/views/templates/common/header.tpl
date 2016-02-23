@@ -1,5 +1,4 @@
 {assign var="base" value="/manavi/"}
-
 <!DOCTYPE html>
 <html lang="ja">
     <head>

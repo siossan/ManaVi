@@ -20,7 +20,8 @@ class Answer extends MY_Controller {
     }
     
     public function result(){
-        
+        header('Access-Control-Allow-Origin: *');
+        $this->view('answer/result');
     }
     
 }

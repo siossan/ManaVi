@@ -96,32 +96,32 @@
                         alert('Error was: ' + status);
                     } else {
                         var originList = response.originAddresses;
-                        var destinationList = response.destinationAddresses;
-                        var outputDiv = document.getElementById('output');
+    {*                        var destinationList = response.destinationAddresses;
+    var outputDiv = document.getElementById('output');*}
 
-{*                        var showGeocodedAddressOnMap = function (asDestination) {
-                            var icon = asDestination ? destinationIcon : originIcon;
-                            return function (results, status) {
-                                if (status === google.maps.GeocoderStatus.OK) {
-                                    map.fitBounds(bounds.extend(results[0].geometry.location));
-                                    markersArray.push(new google.maps.Marker({
-                                        map: map,
-                                        position: results[0].geometry.location,
-                                        icon: icon
-                                    }));
-                                } else {
-                                    alert('Geocode was not successful due to: ' + status);
-                                }
-                            };
-                        };*}
+    {*                        var showGeocodedAddressOnMap = function (asDestination) {
+    var icon = asDestination ? destinationIcon : originIcon;
+    return function (results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+    map.fitBounds(bounds.extend(results[0].geometry.location));
+    markersArray.push(new google.maps.Marker({
+    map: map,
+    position: results[0].geometry.location,
+    icon: icon
+    }));
+    } else {
+    alert('Geocode was not successful due to: ' + status);
+    }
+    };
+    };*}
 
                         for (var i = 0; i < originList.length; i++) {
                             var results = response.rows[i].elements;
-{*                            geocoder.geocode({'address': originList[i]},
-                                    showGeocodedAddressOnMap(false));*}
+    {*                            geocoder.geocode({'address': originList[i]},
+    showGeocodedAddressOnMap(false));*}
                             for (var j = 0; j < results.length; j++) {
-{*                                geocoder.geocode({'address': destinationList[j]},
-                                        showGeocodedAddressOnMap(true));*}
+    {*                                geocoder.geocode({'address': destinationList[j]},
+    showGeocodedAddressOnMap(true));*}
                                 $("#time").val(results[j].distance.text + ' / ' +
                                         results[j].duration.text);
                             }
@@ -198,6 +198,28 @@
                                 緯度：<input type="text" id="lon" name="lon">
                                 経度：<input type="text" id="lat" name="lat">
                                 時間：<input type="text" id="time" name="time">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="cesiumContainer" class="span9">
+                                    <?php echo validation_errors('title'); ?>
+                                </div><!--/span-->
+                                <script>
+                                    {literal}
+                                    var viewer = new Cesium.Viewer('cesiumContainer', {
+                                        imageryProvider: new Cesium.createOpenStreetMapImageryProvider({
+                                            url: 'http://cyberjapandata.gsi.go.jp/xyz/std/'
+                                        }),
+                                        terrainProvider: new Cesium.JapanGSITerrainProvider({heightPower: 50.0}),
+                                        baseLayerPicker: false
+                                    });
+                                    {/literal}
+{*                                    var viewer = new Cesium.Viewer("cesiumContainer");*}
+{*                                    viewer.dataSources.add(Cesium.KmlDataSource.load('http://www.snowwhite.hokkaido.jp/minavicms/material/hogehoge.kmz'));*}
+                                    var scene = viewer.scene;
+                                    scene.globe.depthTestAgainstTerrain = true;
+                                </script>
                             </td>
                         </tr>
                     </table>

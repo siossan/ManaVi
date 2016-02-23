@@ -4,12 +4,15 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/ManaVi/application/models/Test.php</file>
+            <file>file:/C:/xampp/htdocs/ManaVi/application/views/templates/map/cesium/form.tpl</file>
+            <file>file:/C:/xampp/htdocs/ManaVi/application/views/templates/common/header.tpl</file>
             <file>file:/C:/xampp/htdocs/ManaVi/application/models/Questions_model.php</file>
             <file>file:/C:/xampp/htdocs/ManaVi/application/controllers/Question.php</file>
             <file>file:/C:/xampp/htdocs/ManaVi/application/controllers/Map.php</file>
             <file>file:/C:/xampp/htdocs/ManaVi/application/controllers/Answer.php</file>
             <file>file:/C:/xampp/htdocs/ManaVi/application/models/Answers_model.php</file>
             <file>file:/C:/xampp/htdocs/ManaVi/application/views/templates/question/form.tpl</file>
+            <file>file:/C:/xampp/htdocs/ManaVi/application/views/templates/answer/result.tpl</file>
         </group>
     </open-files>
 </project-private>
