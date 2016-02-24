@@ -30,7 +30,7 @@
             var kmlOptions = {
                 preserveViewport: true
             }
-            var kmlUrl = 'http://www.snowwhite.hokkaido.jp/minavicms/material/place.kml';
+            var kmlUrl = 'http://www.snowwhite.hokkaido.jp/minavicms/material/ekijouka.kmz';
             var kmlLayer = new google.maps.KmlLayer({
                 url: kmlUrl,
                 map: map_canvas
