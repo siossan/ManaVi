@@ -195,9 +195,9 @@
                         <tr>
                             <td>
                                 <div id="map_canvas" style="width:70%; height:800px;padding-left: 50px;"></div>
-                                緯度：<input type="text" id="lon" name="lon">
-                                経度：<input type="text" id="lat" name="lat">
-                                時間：<input type="text" id="time" name="time">
+                                緯度：<input type="text" id="lon" name="lon" value="{$lon}">
+                                経度：<input type="text" id="lat" name="lat" value="{$lat}">
+                                時間：<input type="text" id="time" name="time" value="{$dist}">
                             </td>
                         </tr>
                         <tr>

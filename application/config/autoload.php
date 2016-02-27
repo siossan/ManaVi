@@ -41,9 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 //$autoload['packages'] = array();
 $autoload['packages'] = array(
-	APPPATH . 'third_party/smarty',
-	APPPATH . 'third_party/jphpmailer',
-	APPPATH . 'third_party/PHPExcel'
+	APPPATH . 'third_party/smarty'
 );
 
 /*
@@ -64,7 +62,7 @@ $autoload['packages'] = array(
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
 //$autoload['libraries'] = array();
-$autoload['libraries'] = array('smarty', 'form_validation', 'logs', 'utils', 'imgs', 'JPHPMailer', 'PHPExcel');
+$autoload['libraries'] = array('smarty', 'form_validation', 'logs', 'utils', 'imgs');
 /*
 | -------------------------------------------------------------------
 |  Auto-load Drivers

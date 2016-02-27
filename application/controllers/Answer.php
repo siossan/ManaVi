@@ -20,7 +20,10 @@ class Answer extends MY_Controller {
     }
     
     public function result(){
-        header('Access-Control-Allow-Origin: *');
+	var_dump($_POST);
+$this->smarty->assign('lon', 'hoge'); 
+$this->smarty->assign('lat', 'piyo'); 
+$this->smarty->assign('dist', 'hogepiyo'); 
         $this->view('answer/result');
     }
     

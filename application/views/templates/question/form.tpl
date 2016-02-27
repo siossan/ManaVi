@@ -1,5 +1,5 @@
 {include file="common/header.tpl"}
-{assign var="base" value="http://localhost/manavi/"}
+{assign var="base" value="http://www.snowwhite.hokkaido.jp/manavi/"}
 
 {literal}
     <script type="text/javascript">
@@ -98,7 +98,6 @@
                         var originList = response.originAddresses;
                         var destinationList = response.destinationAddresses;
                         var outputDiv = document.getElementById('output');
-
 {*                        var showGeocodedAddressOnMap = function (asDestination) {
                             var icon = asDestination ? destinationIcon : originIcon;
                             return function (results, status) {
@@ -139,7 +138,6 @@
         }
         ;
         function reloadMaker() {
-
             var initPos = new google.maps.LatLng(42.804704, 140.687493);
             var myOptions = {
                 noClear: true,
@@ -172,9 +170,10 @@
                     <li><a href="#">Link</a></li>
                 </ul>
             </div><!--well -->
+            <img src="{$base}common/images/manavi/nami1_nomal.png">
         </div><!--/span-->
 
-        <form action="{$base}Pointaccept/index" method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
+        <form action="{$base}answer/result" method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
 
             <div class="span9">
                 <?php echo validation_errors('title'); ?>
@@ -194,7 +193,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <div id="map_canvas" style="width:70%; height:800px;padding-left: 50px;"></div>
+                                <div id="map_canvas" style="width:70%; height:800px;padding-left: 50px;margin-bottom:10px;"></div>
                                 緯度：<input type="text" id="lon" name="lon">
                                 経度：<input type="text" id="lat" name="lat">
                                 時間：<input type="text" id="time" name="time">
@@ -215,4 +214,3 @@
 </div><!--/.fluid-container-->
 
 {include file="common/footer.tpl"}
-
