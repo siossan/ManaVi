@@ -213,7 +213,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <div id="cesiumContainer" class="span9">
+                                <div id="cesiumContainer" class="span9" style="height:800px">
                                     <?php echo validation_errors('title'); ?>
                                 </div><!--/span-->
                                 <script>
@@ -222,14 +222,31 @@
                                         imageryProvider: new Cesium.createOpenStreetMapImageryProvider({
                                             url: 'http://cyberjapandata.gsi.go.jp/xyz/std/'
                                         }),
-                                        terrainProvider: new Cesium.JapanGSITerrainProvider({heightPower: 50.0}),
-                                        baseLayerPicker: false
+                                        terrainProvider: new Cesium.JapanGSITerrainProvider({heightPower: 1.0}),
+                                        baseLayerPicker: false,
+                                        timeline : false,
+                                        animation : false
                                     });
                                     {/literal}
 {*                                    var viewer = new Cesium.Viewer("cesiumContainer");*}
 {*                                    viewer.dataSources.add(Cesium.KmlDataSource.load('http://www.snowwhite.hokkaido.jp/minavicms/material/hogehoge.kmz'));*}
                                     var scene = viewer.scene;
                                     scene.globe.depthTestAgainstTerrain = true;
+                                    
+                                    var pinBuilder = new Cesium.PinBuilder();
+                                    function createPin(lat, lon, text) {
+                                        return viewer.entities.add({
+                                            name : 'Question mark',
+                                            position : Cesium.Cartesian3.fromDegrees(lon, lat),
+                                            billboard : {
+                                                image : pinBuilder.fromText(text, Cesium.Color.BLUE, 48).toDataURL(),
+                                                verticalOrigin : Cesium.VerticalOrigin.BOTTOM
+                                            }
+                                        });
+                                    }
+                                    
+                                    var entities = [createPin({$lat}, {$lon}, 'Start'), createPin({$elat}, {$elon}, 'End')];
+                                    viewer.zoomTo(entities);
                                 </script>
                             </td>
                         </tr>
