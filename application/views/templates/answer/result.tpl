@@ -172,6 +172,7 @@
                     <li><a href="#">Link</a></li>
                 </ul>
             </div><!--well -->
+            <div class="teacher" style=""><img src="{$base}common/images/manavi/nami1_nomal.png"></div>
         </div><!--/span-->
 
         <form action="{$base}Pointaccept/index" method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
@@ -184,13 +185,23 @@
                 </div><!--nabiko-->
                 *}
                 <h3 class="page-title">
-                    場所 <small>場所を選択</small>
+                    <p style="display:none;">場所 <small>場所を選択</small></p>
                     <table class="form">
                         <tr>
-                            <th>タイトル</th>
+                            <th>避難所マップ</th>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <th>場所</th>
+                        </tr> -->
+                        <tr>
+                            <th>
+                                <div class="t_comment_wrap">
+                                    <div class="t_comment">
+                                        <input type="text" id="teacher_say" class="t_txt" value="答えを見てみましょう">
+                                    </div>
+                                    <div class="t_comment_arw"></div>
+                                </div>
+                            </th>
                         </tr>
                         <tr>
                             <td>

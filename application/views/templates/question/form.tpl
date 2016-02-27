@@ -53,6 +53,10 @@
                 edMarker = null;
             } else if (!stMarker) {
                 stP = event.latLng;
+
+	$("#slon").val(stP.lng());
+	$("#slat").val(stP.lat());
+
                 stMarker = new google.maps.Marker({
                     position: event.latLng,
                     draggable: true,
@@ -70,6 +74,9 @@
                     });
                     infotable(stMarker.getPosition().lat(),
                             edMarker.getPosition().lng());
+
+	$("#elon").val(edMarker.getPosition().lng());
+	$("#elat").val(edMarker.getPosition().lat());
                     var request = {
                         origin: stP, /* 出発地点 */
                         destination: edP, /* 到着地点 */
@@ -172,7 +179,7 @@
                     <li><a href="#">Link</a></li>
                 </ul>
             </div><!--well -->
-            <img src="{$base}common/images/manavi/nami1_nomal.png">
+            <div class="teacher" style=""><img src="{$base}common/images/manavi/nami1_nomal.png"></div>
         </div><!--/span-->
 
         <form action="{$base}answer/result" method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
@@ -187,17 +194,29 @@
                 <h3 class="page-title">
                     <p style="display:none;">場所 <small>場所を選択</small></p>
                     <table class="form">
-                        <tr style="display:none;">
-                            <th>タイトル</th>
+                        <tr>
+                            <th>避難所マップ</th>
                         </tr>
-                        <tr style="display:none;">
+                        <tr>
                             <th>場所</th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div class="t_comment_wrap">
+                                    <div class="t_comment">
+                                        <input type="text" id="teacher_say" class="t_txt" value="大変！{if $emeFlg == 1}{elseif $emeFlg == 1 }{else}{/if}災害が起こってしまいました。君が逃げる避難所を選択しましょう">
+                                    </div>
+                                    <div class="t_comment_arw"></div>
+                                </div>
+                            </th>
                         </tr>
                         <tr>
                             <td>
                                 <div id="map_canvas" style="width:70%; height:800px;padding-left: 50px;margin-bottom:10px;"></div>
-                                緯度：<input type="text" id="lon" name="lon">
-                                経度：<input type="text" id="lat" name="lat">
+                                開始緯度：<input type="text" id="slon" name="slon">
+                                開始経度：<input type="text" id="slat" name="slat">
+                                終了緯度：<input type="text" id="elon" name="elon">
+                                終了経度：<input type="text" id="elat" name="elat">
                                 時間：<input type="text" id="time" name="time">
                                 距離：<input type="text" id="dist" name="dist">
                             </td>

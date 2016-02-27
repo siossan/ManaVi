@@ -892,7 +892,9 @@ table.form th{
 @media (min-width: 1200px){
 }
 .container-fluid{
-	margin-top:90px;
+	margin-top:80px;
+	padding-left:0;
+	padding-right: 0;
 }
 @media (max-width: 979px){
 	.container-fluid{
@@ -934,3 +936,25 @@ table.form th{
 .item-main-img-big img{
 	width:100%;
 }
+.teacher{width:290px; overflow: hidden;}
+.teacher img{}
+.t_comment_wrap{position: relative;max-width:800px;}
+.t_comment{width:100%; padding:10px 0 17px 8px; background:#5781fc; border-radius: 10px;}
+.t_comment_arw{position: absolute;top: 50%;left: -24px;width: 0;height: 0;margin-top:-10px;border-top: 9px solid transparent;border-bottom: 9px solid transparent;border-right: 24px solid #5781fc;}
+.t_txt{ width:100% !important; background:#5781fc !important; border:none !important; color:#fff !important; font-size: 15px !important; box-sizing:border-box;} 
+
+.angry .t_comment{background:#f3455b;}
+.angry .t_comment_arw{position: absolute;top: 50%;left: -24px;width: 0;height: 0;margin-top:-10px;border-top: 9px solid transparent;border-bottom: 9px solid transparent;border-right: 24px solid #f3455b;}
+.angry .t_comment .t_txt{background:#f3455b !important;}
+
+.green .t_comment{background:#79d97a;}
+.green .t_comment_arw{position: absolute;top: 50%;left: -24px;width: 0;height: 0;margin-top:-10px;border-top: 9px solid transparent;border-bottom: 9px solid transparent;border-right: 24px solid #79d97a;}
+.green .t_comment .t_txt{background:#79d97a !important;}
+
+/*answer_list
+-------------------------------------------------------*/
+.answer_list{ padding:30px; max-width:600px;}
+.answer_list table{ width: 100%;border-bottom:1px solid #ccc;border-right:1px solid #ccc;}
+.answer_list table td{ padding:8px 5px; border-top:1px solid #ccc;border-left:1px solid #ccc;}
+.answer_list table th{ padding:8px 0; background:#5781fc; border-top:1px solid #ccc;border-left:1px solid #ccc;color:#fff;font-weight: normal;}
+

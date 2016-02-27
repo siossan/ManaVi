@@ -31,5 +31,9 @@ class Question extends MY_Controller {
     public function add(){
         
     }
+
+    public function qlist(){
+        $this->view('question/qlist');
+    }
 }
     
