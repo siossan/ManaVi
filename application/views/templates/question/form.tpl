@@ -121,8 +121,10 @@
                             for (var j = 0; j < results.length; j++) {
 {*                                geocoder.geocode({'address': destinationList[j]},
                                         showGeocodedAddressOnMap(true));*}
-                                $("#time").val(results[j].distance.text + ' / ' +
-                                        results[j].duration.text);
+{*                                $("#time").val(results[j].distance.text + ' / ' +
+                                        results[j].duration.text);*}
+		$("#time").val(results[j].duration.text);
+		$("#dist").val(results[j].distance.text);
                             }
                         }
                     }
@@ -164,7 +166,7 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span3">
-            <div class="well sidebar-nav">
+            <div class="well sidebar-nav" style="display:none;">
                 <ul class="nav nav-list">
                     <li class="nav-header">Sidebar</li>
                     <li><a href="#">Link</a></li>
@@ -183,12 +185,12 @@
                 </div><!--nabiko-->
                 *}
                 <h3 class="page-title">
-                    場所 <small>場所を選択</small>
+                    <p style="display:none;">場所 <small>場所を選択</small></p>
                     <table class="form">
-                        <tr>
+                        <tr style="display:none;">
                             <th>タイトル</th>
                         </tr>
-                        <tr>
+                        <tr style="display:none;">
                             <th>場所</th>
                         </tr>
                         <tr>
@@ -197,6 +199,7 @@
                                 緯度：<input type="text" id="lon" name="lon">
                                 経度：<input type="text" id="lat" name="lat">
                                 時間：<input type="text" id="time" name="time">
+                                距離：<input type="text" id="dist" name="dist">
                             </td>
                         </tr>
                     </table>
