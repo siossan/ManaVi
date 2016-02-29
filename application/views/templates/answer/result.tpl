@@ -31,7 +31,13 @@
             var kmlOptions = {
                 preserveViewport: true
             }
-            var kmlUrl = 'http://www.snowwhite.hokkaido.jp/minavicms/material/toyohira.kmz';
+            kmlUrl = 'http://www.snowwhite.hokkaido.jp/minavicms/material/place.kmz';
+            kmlLayer = new google.maps.KmlLayer({
+                url: kmlUrl,
+                map: map_canvas
+            });
+            
+            kmlUrl = 'http://www.snowwhite.hokkaido.jp/minavicms/material/toyohira.kmz';
     {if $emeFlg == 1}
             kmlUrl = 'http://www.snowwhite.hokkaido.jp/minavicms/material/zenkai.kmz';
     {elseif $emeFlg == 2}
