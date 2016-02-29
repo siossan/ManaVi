@@ -11,7 +11,7 @@
         var map_canvas;
         var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
-var kmlLayer; 
+        var kmlLayer;
     {/literal}
         $(function () {
             /* レンダーDatePicker UI */
@@ -31,41 +31,51 @@ var kmlLayer;
             var kmlOptions = {
                 preserveViewport: true
             }
+            var kmlUrl = 'http://www.snowwhite.hokkaido.jp/minavicms/material/toyohira.kmz';
+    {if $emeFlg == 1}
+            kmlUrl = 'http://www.snowwhite.hokkaido.jp/minavicms/material/zenkai.kmz';
+    {elseif $emeFlg == 2}
+            kmlUrl = 'http://www.snowwhite.hokkaido.jp/minavicms/material/ishikari.kmz';
+    {/if}
+            kmlLayer = new google.maps.KmlLayer({
+                url: kmlUrl,
+                map: map_canvas
+            });
 
             //地図クリックイベントの登録
-                    var request = {
-                        origin: new google.maps.LatLng({$lat}, {$lon}), /* 出発地点 */
-                        destination: new google.maps.LatLng({$elat}, {$elon}), /* 到着地点 */
-                        travelMode: google.maps.DirectionsTravelMode.WALKING	/* トラベルモード */
-                    };
-                    directionsService.route(request, function (response, status) {
-                        if (status == google.maps.DirectionsStatus.OK) {
-                            directionsDisplay.setDirections(response);
-                        }
-                    });
-                
-　　　　});
-        function kmlchange3() {
-            var kmlUrl = 'http://www.snowwhite.hokkaido.jp/minavicms/material/zenkai.kmz';
-            kmlLayer = new google.maps.KmlLayer({
-                url: kmlUrl,
-                map: map_canvas
+            var request = {
+                origin: new google.maps.LatLng({$lat}, {$lon}), /* 出発地点 */
+                destination: new google.maps.LatLng({$elat}, {$elon}), /* 到着地点 */
+                travelMode: google.maps.DirectionsTravelMode.WALKING	/* トラベルモード */
+            };
+            directionsService.route(request, function (response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                }
             });
-        }
-        function kmlchange() {
-            var kmlUrl = 'http://www.snowwhite.hokkaido.jp/minavicms/material/toyohira.kmz';
-            kmlLayer = new google.maps.KmlLayer({
-                url: kmlUrl,
-                map: map_canvas
-            });
-        }
-        function kmlchange2() {
-            var kmlUrl = 'http://www.snowwhite.hokkaido.jp/minavicms/material/ekijouka.kmz';
-            kmlLayer = new google.maps.KmlLayer({
-                url: kmlUrl,
-                map: map_canvas
-            });
-        }
+
+        });
+    {*        function kmlchange3() {
+    var kmlUrl = 'http://www.snowwhite.hokkaido.jp/minavicms/material/zenkai.kmz';
+    kmlLayer = new google.maps.KmlLayer({
+    url: kmlUrl,
+    map: map_canvas
+    });
+    }
+    function kmlchange() {
+    var kmlUrl = 'http://www.snowwhite.hokkaido.jp/minavicms/material/toyohira.kmz';
+    kmlLayer = new google.maps.KmlLayer({
+    url: kmlUrl,
+    map: map_canvas
+    });
+    }
+    function kmlchange2() {
+    var kmlUrl = 'http://www.snowwhite.hokkaido.jp/minavicms/material/ekijouka.kmz';
+    kmlLayer = new google.maps.KmlLayer({
+    url: kmlUrl,
+    map: map_canvas
+    });
+    }*}
 
         //HTMLtagを更新
         function infotable(lat, lon) {
@@ -132,13 +142,13 @@ var kmlLayer;
                         </tr> -->
                         <tr>
                             <th>
-                                <div class="t_comment_wrap">
-                                    <div class="t_comment">
-                                        <input type="text" id="teacher_say" class="t_txt" value="避難経路を詳しくを見てみましょう">
-                                    </div>
-                                    <div class="t_comment_arw"></div>
-                                </div>
-                            </th>
+                        <div class="t_comment_wrap">
+                            <div class="t_comment">
+                                <input type="text" id="teacher_say" class="t_txt" value="避難経路を詳しくを見てみましょう">
+                            </div>
+                            <div class="t_comment_arw"></div>
+                        </div>
+                        </th>
                         </tr>
                         <tr>
                             <td>
@@ -146,9 +156,9 @@ var kmlLayer;
                                 緯度：<input type="text" id="lon" name="lon" value="{$lon}">
                                 経度：<input type="text" id="lat" name="lat" value="{$lat}">
                                 時間：<input type="text" id="time" name="time" value="{$dist}">
-<input type="button" value="豊平浸水域" onclick="kmlchange();">
-<input type="button" value="全壊率" onclick="kmlchange2();">
-<input type="button" value="液状化" onclick="kmlchange3();">
+{*                                <input type="button" value="豊平浸水域" onclick="kmlchange();">
+                                <input type="button" value="全壊率" onclick="kmlchange2();">
+                                <input type="button" value="液状化" onclick="kmlchange3();">*}
                             </td>
                         </tr>
                         <tr>
@@ -158,35 +168,35 @@ var kmlLayer;
                                 </div><!--/span-->
                                 <script>
                                     {literal}
-                                    var viewer = new Cesium.Viewer('cesiumContainer', {
-                                        imageryProvider: new Cesium.createOpenStreetMapImageryProvider({
-                                            url: 'http://cyberjapandata.gsi.go.jp/xyz/std/'
-                                        }),
-                                        terrainProvider: new Cesium.JapanGSITerrainProvider({heightPower: 15.0}),
-                                        baseLayerPicker: false,
-                                        timeline : false,
-                                        animation : false
-                                    });
-                                    {/literal}
-{*                                    var viewer = new Cesium.Viewer("cesiumContainer");*}
-{*                                    viewer.dataSources.add(Cesium.KmlDataSource.load('http://www.snowwhite.hokkaido.jp/minavicms/material/hogehoge.kmz'));*}
-                                    var scene = viewer.scene;
-                                    scene.globe.depthTestAgainstTerrain = true;
-                                    
-                                    var pinBuilder = new Cesium.PinBuilder();
-                                    function createPin(lat, lon, text) {
-                                        return viewer.entities.add({
-                                            name : 'Question mark',
-                                            position : Cesium.Cartesian3.fromDegrees(lon, lat),
-                                            billboard : {
-                                                image : pinBuilder.fromText(text, Cesium.Color.BLUE, 48).toDataURL(),
-                                                verticalOrigin : Cesium.VerticalOrigin.BOTTOM
-                                            }
+                                        var viewer = new Cesium.Viewer('cesiumContainer', {
+                                            imageryProvider: new Cesium.createOpenStreetMapImageryProvider({
+                                                url: 'http://cyberjapandata.gsi.go.jp/xyz/std/'
+                                            }),
+                                            terrainProvider: new Cesium.JapanGSITerrainProvider({heightPower: 15.0}),
+                                            baseLayerPicker: false,
+                                            timeline: false,
+                                            animation: false
                                         });
-                                    }
-                                    
-                                    var entities = [createPin({$lat}, {$lon}, 'Start'), createPin({$elat}, {$elon}, 'End')];
-                                    viewer.zoomTo(entities);
+                                    {/literal}
+                                    {*                                    var viewer = new Cesium.Viewer("cesiumContainer");*}
+                                    {*                                    viewer.dataSources.add(Cesium.KmlDataSource.load('http://www.snowwhite.hokkaido.jp/minavicms/material/hogehoge.kmz'));*}
+                                        var scene = viewer.scene;
+                                        scene.globe.depthTestAgainstTerrain = true;
+
+                                        var pinBuilder = new Cesium.PinBuilder();
+                                        function createPin(lat, lon, text) {
+                                            return viewer.entities.add({
+                                                name: 'Question mark',
+                                                position: Cesium.Cartesian3.fromDegrees(lon, lat),
+                                                billboard: {
+                                                    image: pinBuilder.fromText(text, Cesium.Color.BLUE, 48).toDataURL(),
+                                                    verticalOrigin: Cesium.VerticalOrigin.BOTTOM
+                                                }
+                                            });
+                                        }
+
+                                        var entities = [createPin({$lat}, {$lon}, 'Start'), createPin({$elat}, {$elon}, 'End')];
+                                        viewer.zoomTo(entities);
                                 </script>
                             </td>
                         </tr>
