@@ -35,6 +35,16 @@
                 url: kmlUrl,
                 map: map_canvas
             });
+            
+            $("#slon").val({$lon});
+            $("#slat").val({$lat});
+
+            stMarker = new google.maps.Marker({
+                position: new google.maps.LatLng({$lat}, {$lon});,
+                draggable: true,
+                map: map_canvas
+            });
+
             //地図クリックイベントの登録
             google.maps.event.addListener(map_canvas, 'click',
                     function (event) {
@@ -47,21 +57,10 @@
         });
         function clickMapObject(event, layerFlg) {
             if (stMarker && edMarker) {
-                stMarker.setMap(null);
                 edMarker.setMap(null);
-                stMarker = null;
                 edMarker = null;
             } else if (!stMarker) {
-                stP = event.latLng;
 
-                $("#slon").val(stP.lng());
-                $("#slat").val(stP.lat());
-
-                stMarker = new google.maps.Marker({
-                    position: event.latLng,
-                    draggable: true,
-                    map: map_canvas
-                });
             } else if (!edMarker) {
                 if (layerFlg == 0) {
                     alert('避難所を選択してください');
