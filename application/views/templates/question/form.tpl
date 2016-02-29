@@ -54,8 +54,8 @@
             } else if (!stMarker) {
                 stP = event.latLng;
 
-	$("#slon").val(stP.lng());
-	$("#slat").val(stP.lat());
+                $("#slon").val(stP.lng());
+                $("#slat").val(stP.lat());
 
                 stMarker = new google.maps.Marker({
                     position: event.latLng,
@@ -75,8 +75,8 @@
                     infotable(stMarker.getPosition().lat(),
                             edMarker.getPosition().lng());
 
-	$("#elon").val(edMarker.getPosition().lng());
-	$("#elat").val(edMarker.getPosition().lat());
+                    $("#elon").val(edMarker.getPosition().lng());
+                    $("#elat").val(edMarker.getPosition().lat());
                     var request = {
                         origin: stP, /* 出発地点 */
                         destination: edP, /* 到着地点 */
@@ -105,33 +105,33 @@
                         var originList = response.originAddresses;
                         var destinationList = response.destinationAddresses;
                         var outputDiv = document.getElementById('output');
-{*                        var showGeocodedAddressOnMap = function (asDestination) {
-                            var icon = asDestination ? destinationIcon : originIcon;
-                            return function (results, status) {
-                                if (status === google.maps.GeocoderStatus.OK) {
-                                    map.fitBounds(bounds.extend(results[0].geometry.location));
-                                    markersArray.push(new google.maps.Marker({
-                                        map: map,
-                                        position: results[0].geometry.location,
-                                        icon: icon
-                                    }));
-                                } else {
-                                    alert('Geocode was not successful due to: ' + status);
-                                }
-                            };
-                        };*}
+    {*                        var showGeocodedAddressOnMap = function (asDestination) {
+    var icon = asDestination ? destinationIcon : originIcon;
+    return function (results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+    map.fitBounds(bounds.extend(results[0].geometry.location));
+    markersArray.push(new google.maps.Marker({
+    map: map,
+    position: results[0].geometry.location,
+    icon: icon
+    }));
+    } else {
+    alert('Geocode was not successful due to: ' + status);
+    }
+    };
+    };*}
 
                         for (var i = 0; i < originList.length; i++) {
                             var results = response.rows[i].elements;
-{*                            geocoder.geocode({'address': originList[i]},
-                                    showGeocodedAddressOnMap(false));*}
+    {*                            geocoder.geocode({'address': originList[i]},
+    showGeocodedAddressOnMap(false));*}
                             for (var j = 0; j < results.length; j++) {
-{*                                geocoder.geocode({'address': destinationList[j]},
-                                        showGeocodedAddressOnMap(true));*}
-{*                                $("#time").val(results[j].distance.text + ' / ' +
-                                        results[j].duration.text);*}
-		$("#time").val(results[j].duration.text);
-		$("#dist").val(results[j].distance.text);
+    {*                                geocoder.geocode({'address': destinationList[j]},
+    showGeocodedAddressOnMap(true));*}
+    {*                                $("#time").val(results[j].distance.text + ' / ' +
+    results[j].duration.text);*}
+                                $("#time").val(results[j].duration.text);
+                                $("#dist").val(results[j].distance.text);
                             }
                         }
                     }
@@ -202,26 +202,30 @@
                         </tr>
                         <tr>
                             <th>
-                                <div class="t_comment_wrap">
-                                    <div class="t_comment">
-                                        <input type="text" id="teacher_say" class="t_txt" value="大変！{if $emeFlg == "1"}地震{elseif $emeFlg == 2 }石狩川洪水{else}豊平川洪水{/if}が起こってしまいました。君が逃げる避難所を選択しましょう">
-                                    </div>
-                                    <div class="t_comment_arw"></div>
-                                </div>
-                            </th>
+                        <div class="t_comment_wrap">
+                            <div class="t_comment">
+                                <input type="text" id="teacher_say" class="t_txt" value="大変！{if $emeFlg == "1"}地震{elseif $emeFlg == 2 }石狩川洪水{else}豊平川洪水{/if}が起こってしまいました。君が逃げる避難所を選択しましょう">
+                            </div>
+                            <div class="t_comment_arw"></div>
+                        </div>
+                        </th>
                         </tr>
                         <tr>
                             <td>
                                 <div id="map_canvas" style="width:70%; height:800px;padding-left: 50px;margin-bottom:10px;"></div>
+                                <input type="hidden" id="slon" name="slon">
+                                <input type="hidden" id="slat" name="slat">
+                                <input type="hidden" id="elon" name="elon">
+                                <input type="hidden" id="elat" name="elat">
                                 <dl class="input_box cf">
                                     {*
-                                <dt>開始緯度</dt><dd><input type="text" id="slon" name="slon"></dd>
-                                <dt>開始経度</dt><dd><input type="text" id="slat" name="slat"></dd>
-                                <dt>終了緯度</dt><dd><input type="text" id="elon" name="elon"></dd>
-                                <dt>終了経度</dt><dd><input type="text" id="elat" name="elat"></dd>
-                                *}
-                                <dt>時間</dt><dd><input type="text" id="time" name="time"></dd>
-                                <dt>距離</dt><dd><input type="text" id="dist" name="dist"></dd>
+                                    <dt>開始緯度</dt><dd><input type="text" id="slon" name="slon"></dd>
+                                    <dt>開始経度</dt><dd><input type="text" id="slat" name="slat"></dd>
+                                    <dt>終了緯度</dt><dd><input type="text" id="elon" name="elon"></dd>
+                                    <dt>終了経度</dt><dd><input type="text" id="elat" name="elat"></dd>
+                                    *}
+                                    <dt>時間</dt><dd><input type="text" id="time" name="time"></dd>
+                                    <dt>距離</dt><dd><input type="text" id="dist" name="dist"></dd>
                                 </dl>
                             </td>
                         </tr>
