@@ -1,5 +1,4 @@
 {include file="common/header.tpl"}
-{assign var="base" value="http://www.snowwhite.hokkaido.jp/manavi/"}
 
 {literal}
     <script type="text/javascript">

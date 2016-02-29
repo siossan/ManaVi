@@ -1,4 +1,5 @@
-{assign var="base" value="/manavi/"}
+{*{assign var="base" value="/manavi/"}*}
+{assign var="base" value="http://www.snowwhite.hokkaido.jp/manavi/"}
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -75,7 +76,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">Project name</a>
+                    <a class="brand" href="www.snowwhite.hokkaido.jp/manavi">ManaVi</a>
                     <div class="nav-collapse collapse">
 {*                        <ul class="nav navbar-text pull-right">
                             <li><a href="#" class="register"><i class="icon-off"></i>ログアウト</a></li>
@@ -83,7 +84,7 @@
 {*                        <p class="navbar-text pull-right">
                             <i class="icon-asterisk"></i>Logged in as <a href="#" class="navbar-link">塩崎</a>
                         </p>*}
-                        <ul class="nav">
+{*                        <ul class="nav">
                             <li><a href="01.html"><i class="icon-comment"></i>表情＆セリフ</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-map-marker"></i>シーン選択<b class="caret"></b></a>
@@ -102,7 +103,7 @@
                             </li>
                             <li class="active"><a href="02.html"><i class="icon-collapse"></i>座標入力</a></li>
 
-                        </ul>
+                        </ul>*}
                     </div><!--nav-collapse -->
                 </div><!--navbar-inner -->
             </div><!--navbar -->
