@@ -76,7 +76,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="www.snowwhite.hokkaido.jp/manavi">ManaVi</a>
+                    <a class="brand" href="www.snowwhite.hokkaido.jp/manavi/question/qlist">ManaVi</a>
                     <div class="nav-collapse collapse">
 {*                        <ul class="nav navbar-text pull-right">
                             <li><a href="#" class="register"><i class="icon-off"></i>ログアウト</a></li>
