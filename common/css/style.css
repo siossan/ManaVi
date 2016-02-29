@@ -907,6 +907,7 @@ table.form th{
 .well{
 	background-color: #3d3d3d;
 	padding:0;
+	display: none;
 }
 .well .nav-header{
 	background-color: #282828;
@@ -951,10 +952,22 @@ table.form th{
 .green .t_comment_arw{position: absolute;top: 50%;left: -24px;width: 0;height: 0;margin-top:-10px;border-top: 9px solid transparent;border-bottom: 9px solid transparent;border-right: 24px solid #79d97a;}
 .green .t_comment .t_txt{background:#79d97a !important;}
 
+.input_box{overflow: hidden;}
+.input_box dt{ float:left; width:60px; height:40px;line-height:40px;}
+.input_box dd:before{ content:':';padding-right:5px;}
+.input_box dd{ float:none;padding-left:60px; height:40px;line-height:40px;}
+
 /*answer_list
 -------------------------------------------------------*/
-.answer_list{ padding:30px; max-width:600px;}
+..row-fluid{ min-height: 300px;}
+.answer_comment{position: relative; display: inline-block;background:#79d97a; color:#fff; padding:20px;margin-bottom:20px;border-radius: 10px; font-size: 16px;}
+.answer_comment .arw{position: absolute;top: 50%;left: -18px;width: 0;height: 0;margin-top:-10px;border-top: 9px solid transparent;border-bottom: 9px solid transparent;border-right: 18px solid #79d97a;}
+
+.teacher .answer_comment{background:#f3455b;}
+.teacher .answer_comment .arw{position: absolute;top: 50%;left: -18px;width: 0;height: 0;margin-top:-10px;border-top: 9px solid transparent;border-bottom: 9px solid transparent;border-right: 18px solid #f3455b;}
+.answer_list{ background:url('http://www.snowwhite.hokkaido.jp/manavi/common/images/manavi/nami1_nomal.png') no-repeat -50px -30px; padding:30px 30px 30px 220px; max-width:600px;}
 .answer_list table{ width: 100%;border-bottom:1px solid #ccc;border-right:1px solid #ccc;}
 .answer_list table td{ padding:8px 5px; border-top:1px solid #ccc;border-left:1px solid #ccc;}
 .answer_list table th{ padding:8px 0; background:#5781fc; border-top:1px solid #ccc;border-left:1px solid #ccc;color:#fff;font-weight: normal;}
+.answer_list.teacher table th{background:#96d2d3;}
 

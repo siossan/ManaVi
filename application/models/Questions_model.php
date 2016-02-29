@@ -51,6 +51,19 @@ class Questions_model extends CI_Model {
         }
     }
 
+    public function getQuestionById($qId) {
+        $sql = 'SELECT * FROM questions WHERE question_id = '.$qId;
+        $query = $this->db->query($sql);
+        if ($this->db->query($sql)) {
+            // 成功処理
+            $result = $query->result('array');
+            return $result;
+        } else {
+            // 失敗処理
+            return false;
+        }
+    }
+
 }
 
 ?>

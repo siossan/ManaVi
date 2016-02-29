@@ -30,7 +30,7 @@
             var kmlOptions = {
                 preserveViewport: true
             }
-            var kmlUrl = 'http://www.snowwhite.hokkaido.jp/minavicms/material/place.kml';
+            var kmlUrl = 'http://www.snowwhite.hokkaido.jp/minavicms/material/place.kmz';
             var kmlLayer = new google.maps.KmlLayer({
                 url: kmlUrl,
                 map: map_canvas
@@ -204,7 +204,7 @@
                             <th>
                                 <div class="t_comment_wrap">
                                     <div class="t_comment">
-                                        <input type="text" id="teacher_say" class="t_txt" value="大変！{if $emeFlg == 1}{elseif $emeFlg == 1 }{else}{/if}災害が起こってしまいました。君が逃げる避難所を選択しましょう">
+                                        <input type="text" id="teacher_say" class="t_txt" value="大変！{if $emeFlg == "1"}地震{elseif $emeFlg == 2 }石狩川洪水{else}豊平川洪水{/if}が起こってしまいました。君が逃げる避難所を選択しましょう">
                                     </div>
                                     <div class="t_comment_arw"></div>
                                 </div>
@@ -213,12 +213,14 @@
                         <tr>
                             <td>
                                 <div id="map_canvas" style="width:70%; height:800px;padding-left: 50px;margin-bottom:10px;"></div>
-                                開始緯度：<input type="text" id="slon" name="slon">
-                                開始経度：<input type="text" id="slat" name="slat">
-                                終了緯度：<input type="text" id="elon" name="elon">
-                                終了経度：<input type="text" id="elat" name="elat">
-                                時間：<input type="text" id="time" name="time">
-                                距離：<input type="text" id="dist" name="dist">
+                                <dl class="input_box cf">
+                                <dt>開始緯度</dt><dd><input type="text" id="slon" name="slon"></dd>
+                                <dt>開始経度</dt><dd><input type="text" id="slat" name="slat"></dd>
+                                <dt>終了緯度</dt><dd><input type="text" id="elon" name="elon"></dd>
+                                <dt>終了経度</dt><dd><input type="text" id="elat" name="elat"></dd>
+                                <dt>時間</dt><dd><input type="text" id="time" name="time"></dd>
+                                <dt>距離</dt><dd><input type="text" id="dist" name="dist"></dd>
+                                </dl>
                             </td>
                         </tr>
                     </table>
