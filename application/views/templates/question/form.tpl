@@ -183,7 +183,7 @@
         </div><!--/span-->
 
         <form action="{$base}answer/result" method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
-
+            <input type="hidden" name="eme_flg" value="{$emeFlg}" />
             <div class="span9">
                 <?php echo validation_errors('title'); ?>
                 {*
@@ -214,10 +214,12 @@
                             <td>
                                 <div id="map_canvas" style="width:70%; height:800px;padding-left: 50px;margin-bottom:10px;"></div>
                                 <dl class="input_box cf">
+                                    {*
                                 <dt>開始緯度</dt><dd><input type="text" id="slon" name="slon"></dd>
                                 <dt>開始経度</dt><dd><input type="text" id="slat" name="slat"></dd>
                                 <dt>終了緯度</dt><dd><input type="text" id="elon" name="elon"></dd>
                                 <dt>終了経度</dt><dd><input type="text" id="elat" name="elat"></dd>
+                                *}
                                 <dt>時間</dt><dd><input type="text" id="time" name="time"></dd>
                                 <dt>距離</dt><dd><input type="text" id="dist" name="dist"></dd>
                                 </dl>

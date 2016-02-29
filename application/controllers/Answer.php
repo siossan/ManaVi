@@ -27,7 +27,7 @@ $this->smarty->assign('elon', $_POST['elon']);
 $this->smarty->assign('elat', $_POST['elat']);  
 $this->smarty->assign('dist', $_POST['dist']);  
 $this->smarty->assign('time', $_POST['time']);
-var_dump($_POST);
+$this->smarty->assign('emeFlg', $_POST['eme_flg']);
 $this->load->model('Questions_model', '', TRUE);
 $this->Questions_model->setAnswer($_POST['slon'],$_POST['slat'],$_POST['elon'],$_POST['elat'],'hogehoge', $_POST['dist'], $_POST['time']);
         $this->view('answer/result');
