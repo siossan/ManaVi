@@ -172,7 +172,7 @@
                                             imageryProvider: new Cesium.createOpenStreetMapImageryProvider({
                                                 url: 'http://cyberjapandata.gsi.go.jp/xyz/std/'
                                             }),
-                                            terrainProvider: new Cesium.JapanGSITerrainProvider({heightPower: 15.0}),
+                                            terrainProvider: new Cesium.JapanGSITerrainProvider({heightPower: 50.0}),
                                             baseLayerPicker: false,
                                             timeline: false,
                                             animation: false
