@@ -40,7 +40,7 @@
             $("#slat").val({$lat});
 
             stMarker = new google.maps.Marker({
-                position: new google.maps.LatLng({$lat}, {$lon});,
+                position: new google.maps.LatLng({$lat}, {$lon}),
                 draggable: true,
                 map: map_canvas
             });
