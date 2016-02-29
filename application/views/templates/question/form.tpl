@@ -39,11 +39,14 @@
             $("#slon").val({$lon});
             $("#slat").val({$lat});
 
+            stP = new google.maps.LatLng({$lat}, {$lon});
+            
             stMarker = new google.maps.Marker({
-                position: new google.maps.LatLng({$lat}, {$lon}),
+                position: stP,
                 draggable: true,
                 map: map_canvas
             });
+            
 
             //地図クリックイベントの登録
             google.maps.event.addListener(map_canvas, 'click',
