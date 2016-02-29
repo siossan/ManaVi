@@ -1,5 +1,5 @@
-{assign var="base" value="/manavi/"}
-{*{assign var="base" value="http://www.snowwhite.hokkaido.jp/manavi/"}*}
+{*{assign var="base" value="/manavi/"}*}
+{assign var="base" value="http://www.snowwhite.hokkaido.jp/manavi/"}
 <!DOCTYPE html>
 <html lang="ja">
     <head>
